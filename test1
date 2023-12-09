@@ -43,7 +43,7 @@ local Moon = {
     CodeServer = 'game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,'..'\''..tostring(game.JobId)..'\''..')'
 
 		local Embed = {
-			 ["username"] = "Zps Editor",
+			 ["username"] = "Full Moon Notify",
 			 ["avatar_url"] = "https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec",
 			 ["embeds"] = {
 				{
@@ -82,15 +82,29 @@ local Moon = {
 				}
 			},
 		}
-		local Data = game:GetService("HttpService"):JSONEncode(Embed)
-		local Head = {["content-type"] = "application/json"}
-		Send = http_request or request or HttpPost or syn.request
-		local sendhook = {Url = LinkHook, Body = Data, Method = "POST", Headers = Head}
-		Send(sendhook)
-
-_G.ServerHop = true
-
+        _G.ServerHop = false
+        log("false")
+        
+        if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then -- Make the game find the object first, then server hop.
+            log("omg :O full moon found!! sharing this to the boys rn")
+            local newdata = game:GetService("HttpService"):JSONEncode(data)
+            local headers = {["content-type"] = "application/json"}
+            Send = http_request or request or HttpPost or syn.request
+            local sendhook = {Url = LinkHook, Body = Data, Method = "POST", Headers = Head}
+            request(abcdef)
+            wait(0.3)
+            _G.ServerHop = true
+            log("true")
+        else
+            log("no full moon has found :( ")
+            wait(0.3)
+            _G.ServerHop = true
+            log("true")
+        end
+        
+        logTime("Finished searching Full Moon, server hopping..")
+        
         while _G.ServerHop do
-            wait(0.5)
+            wait(0.05)
             ServerHop()
         end
