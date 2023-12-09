@@ -1,10 +1,18 @@
-local url = "https://discord.com/api/webhooks/1182959098027851847/tbReInRTSQiP4A7FUhYKd7cV3x_B3tuD8nlZLNbmlBSg__lbeeLMAiq-vYkhY1WqFW9L" -- ur webhook url
-
-getgenv().Settings = {
-    ["Performance"] = {
-        ["FPS Cap"] = 60,
-        ["Disable Rendering"] = false
+-- // Settings // --
+getgenv().Config = {
+    ["Discord"] = { -- yuo cannot disable this. 
+        ["WebhookUrl"] = "https://discord.com/api/webhooks/1182959098027851847/tbReInRTSQiP4A7FUhYKd7cV3x_B3tuD8nlZLNbmlBSg__lbeeLMAiq-vYkhY1WqFW9L",
+        ["Content"] = "test", -- @everyone or <@roleid/userid>, it can be just text.
+        ["BrandName"] = "HN Gaming | Full Moon Notifier", -- you can change it to your name, but this might hurt me :(
+        ["ImageUrl"] = "https://moewalls.com/wp-content/uploads/2022/05/itachi-uchiha-full-moon-naruto-shippuden-thumb.jpg"
     },
+    ["Console"] = {
+        ["Enabled"] = true,
+    },
+    ["ClientSettings"] = {
+        ["Disable Rendering"] = false, -- also known as White Screen. (lol?)
+        ["Fps Lock"] = 60
+    }
 }
 
 --[[
@@ -107,6 +115,8 @@ function log(...) rconsoleprint(("[catn1qqer open-sourced full moon notifier] %s
 function logTime(...) log(..., "|", math.round((tick() - loadTime) * 1000), "ms") end
 
 -- // Webhook --
+local Discord = Config["Discord"]
+local url = Discord["WebhookUrl"]
 
     ServerScript = 'game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,'..'\''..tostring(game.JobId)..'\''..')'
         for i,v in pairs(game.Players:GetPlayers()) do
@@ -123,7 +133,7 @@ function logTime(...) log(..., "|", math.round((tick() - loadTime) * 1000), "ms"
 
         local data = {
             ["username"] = 'HN Gaming | Full Moon Notifier',
-            ['content'] = 'nice',
+            ['content'] = Discord["Content"],
             ["embeds"] = {
                 {
                     ["title"] = "**catn1qqer | full moon notifier**",
@@ -150,7 +160,7 @@ function logTime(...) log(..., "|", math.round((tick() - loadTime) * 1000), "ms"
                         }
                     },
                     ["image"] = {
-                        ["url"] = "https://moewalls.com/wp-content/uploads/2022/05/itachi-uchiha-full-moon-naruto-shippuden-thumb.jpg", -- wtf
+                        ["url"] = "Discord["ImageUrl"]", -- wtf
                     },
                     ["timestamp"] = DateTime.now():ToIsoDate(),
                 }
