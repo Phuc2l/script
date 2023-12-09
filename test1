@@ -82,16 +82,17 @@ local Moon = {
 				}
 			},
 		}
+
         _G.ServerHop = false
         log("false")
         
         if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then -- Make the game find the object first, then server hop.
             log("omg :O full moon found!! sharing this to the boys rn")
-            local newdata = game:GetService("HttpService"):JSONEncode(data)
-            local headers = {["content-type"] = "application/json"}
+            local Data = game:GetService("HttpService"):JSONEncode(Embed)
+		    local Head = {["content-type"] = "application/json"}
             Send = http_request or request or HttpPost or syn.request
             local sendhook = {Url = LinkHook, Body = Data, Method = "POST", Headers = Head}
-            request(abcdef)
+            Send(sendhook)
             wait(0.3)
             _G.ServerHop = true
             log("true")
