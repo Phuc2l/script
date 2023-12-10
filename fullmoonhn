@@ -1,3 +1,61 @@
+LinkHook = "https://discord.com/api/webhooks/1183302471230169088/QdpwsiLV1Dihsh-d0eiONM5OEQbAe0c5R40zBrSqSgeIeCjVvVBxO_IJe00SVQyqkhBX"
+for i,v in pairs(game.Players:GetPlayers()) do
+    PlayersMin = i
+end
+
+CodeServer = 'game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,'..'\''..tostring(game.JobId)..'\''..')'
+
+local Embed = {
+    ["username"] = "Mirage Island Notify ",
+    ["avatar_url"] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_gW26EMSv5IXPm9IJDtNa8VpDciHk5u9JMA&usqp=CAU",
+    ["embeds"] = {
+       {
+           ["title"] = "**Mirage Island Notify 🏝️ !!**",
+           ["color"] = tonumber(00000000),
+           ["type"] = "rich",
+           ["fields"] =  {
+               {
+                   ["name"] = "Players",
+                   ["value"] = '```'..tostring(PlayersMin)..'/12```',
+                   ["inline"] = false
+               },
+               {
+                   ["name"] = "Job Id",
+                   ["value"] = '```'..tostring(game.JobId)..'```',
+                   ["inline"] = false
+               },
+               {
+                   ["name"] = "Code",
+                   ["value"] = '```'..CodeServer..'```',
+                   ["inline"] = true
+               },
+               {
+                   ["name"] = "Mirage",
+                   ["value"] = '🟢',
+                   ["inline"] = true
+               }
+           },
+           ["thumbnail"] = {
+           ["url"] = "https://www.touchtapplay.com/wp-content/uploads/2022/09/Mirage-Island-in-Blox-Fruits-Roblox.webp?resize=640%2C358",
+           },
+           ["footer"] = {
+               ["text"] = os.date("%A".." | ".."%d".." ".."%B".." ".."%Y".." | ".."%X").."| HN Gaming",
+               ["icon_url"] = "https://cdn.britannica.com/89/145489-050-4E9609BA/moon-return-journey-Apollo-11-July-21-1969.jpg"
+           }
+       }
+   },
+}
+
+if workspace.Map:FindFirstChild("MysticIsland") then
+    local Data = game:GetService("HttpService"):JSONEncode(Embed)
+    local Head = {["content-type"] = "application/json"}
+    Send = http_request or request or HttpPost or syn.request
+    local sendhook = {Url = LinkHook, Body = Data, Method = "POST", Headers = Head}
+    Send(sendhook)
+else
+    print("Hop")
+end
+
 function Hop()
     local PlaceID = game.PlaceId
     local AllIDs = {}
