@@ -47,7 +47,7 @@ local Moon = {
 			 ["avatar_url"] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_gW26EMSv5IXPm9IJDtNa8VpDciHk5u9JMA&usqp=CAU",
 			 ["embeds"] = {
 				{
-					["title"] = "**Full Moon Notify 🌝!!**",
+					["title"] = "**Full Moon Notify 🌝 !!**",
 					["color"] = tonumber(00000000),
 					["type"] = "rich",
 					["fields"] =  {
@@ -76,7 +76,7 @@ local Moon = {
                     ["url"] = "https://moewalls.com/wp-content/uploads/2022/05/itachi-uchiha-full-moon-naruto-shippuden-thumb.jpg",
                     },
 					["footer"] = {
-						["text"] = os.date("%A".." | ".."%d".." ".."%B".." ".."%Y".." | ".."%X").."HN Gaming",
+						["text"] = os.date("%A".." | ".."%d".." ".."%B".." ".."%Y".." | ".."%X")..""| HN Gaming",
                         ["icon_url"] = "https://cdn.britannica.com/89/145489-050-4E9609BA/moon-return-journey-Apollo-11-July-21-1969.jpg"
                     }
 				}
