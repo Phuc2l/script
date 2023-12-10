@@ -31,7 +31,7 @@ local Embed = {
                },
                {
                    ["name"] = "Mirage",
-                   ["value"] = ''🟢'',
+                   ["value"] = '🟢',
                    ["inline"] = true
                }
            },
