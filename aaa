@@ -47,7 +47,7 @@ local Moon = {
 			 ["avatar_url"] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_gW26EMSv5IXPm9IJDtNa8VpDciHk5u9JMA&usqp=CAU",
 			 ["embeds"] = {
 				{
-					["title"] = "**Full Moon Notify**",
+					["title"] = "**Full Moon Notify !!**",
 					["color"] = tonumber(00000000),
 					["type"] = "rich",
 					["fields"] =  {
