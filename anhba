@@ -1,4 +1,9 @@
 LinkHook = "https://discord.com/api/webhooks/1183302471230169088/QdpwsiLV1Dihsh-d0eiONM5OEQbAe0c5R40zBrSqSgeIeCjVvVBxO_IJe00SVQyqkhBX"
+for i,v in pairs(game.Players:GetPlayers()) do
+    PlayersMin = i
+end
+
+CodeServer = 'game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,'..'\''..tostring(game.JobId)..'\''..')'
 
 local Embed = {
     ["username"] = "Mirage Island Notify ",
