@@ -30,7 +30,7 @@ getgenv().TweenSpeed = 300 -- 350 max or Get Tp Back
 
         },
 
-        ["Blox Fruit"] = {["Enable"] = true, ["Delay"] = 4,
+        ["Blox Fruit"] = {["Enable"] = false, ["Delay"] = 4,
 
             ["Skills"] = {
 
